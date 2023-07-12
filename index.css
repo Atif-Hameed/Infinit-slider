@@ -1,0 +1,71 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: rgb(95, 94, 94);
+}
+
+
+@keyframes sliding{
+    from{
+        transform: translateX(0%);
+    }
+    to{
+        transform: translateX(-200%);
+    }
+}
+
+
+.slider{
+    padding: 3rem 0;
+    overflow: hidden;
+    white-space: nowrap;
+    background-color: rgb(201, 199, 199);
+    position: relative;
+}
+
+                          /* IF You Want to Add BEfore ANd After In slide  */
+.slider::before{
+    position: absolute;
+    left: 0;
+    top: 0;
+    content: "";
+    width: 6rem;
+    height: 100%;
+    /* background-color: red; */
+    /* background: linear-gradient(transparent, red); */
+    background: linear-gradient(to left, rgba(255,255,255,0), white);
+    z-index: 2;
+}
+.slider::after{
+    position: absolute;
+    right: 0;
+    top: 0;
+    content: "";
+    width: 6rem;
+    height: 100%;
+    /* background-color: red; */
+    /* background: linear-gradient(transparent, red); */
+    background: linear-gradient(to right, rgba(255,255,255,0), white);
+
+    z-index: 2;
+}
+
+
+
+.slider:hover .slider-track{
+    animation-play-state: paused;
+}
+
+.slider-track{
+    display: inline-block;
+    animation: 10s sliding infinite linear;
+}
+
+.slider-track>img{
+    width: 10rem;
+    height: 8rem;
+    margin: 0 3rem;
+}
